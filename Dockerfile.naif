@@ -1,0 +1,14 @@
+# Variante NAIVE (experience B) : tout est copie avant l'installation.
+# Toute modification d'app.py invalide la couche COPY, donc rejoue pip install.
+FROM python:3.12.15-slim
+WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PORT=8000
+COPY . ./
+RUN pip install --no-cache-dir -r requirements.txt
+RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin appuser \
+    && chown -R appuser:appuser /app
+USER 10001
+EXPOSE 8000
+CMD ["python", "app.py"]

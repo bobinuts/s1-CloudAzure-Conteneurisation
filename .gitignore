@@ -1,0 +1,24 @@
+# Fichier de suivi personnel, hors rendu du TP
+reprise_comp.md
+
+# Notebook de synthese non retenu pour le rendu
+*.ipynb
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets et configuration locale (ne jamais committer)
+.env
+.docker/
+config.json
+
+# Systeme / editeur
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
